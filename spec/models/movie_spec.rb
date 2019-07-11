@@ -99,28 +99,6 @@ describe Movie, ".long" do
   end
 end
 
-describe Movie, ".directed_by" do
-  it "returns movies directed by the director with the provided ID", points: 3 do
-    first_movie = Movie.new
-    first_movie.director_id = 12
-    first_movie.save
-
-    second_movie = Movie.new
-    second_movie.director_id = 42
-    second_movie.save
-
-    third_movie = Movie.new
-    third_movie.director_id = 42
-    third_movie.save
-
-    fourth_movie = Movie.new
-    fourth_movie.director_id = 101
-    fourth_movie.save
-
-    expect(Movie.directed_by(42)).to match_array([second_movie, third_movie])
-  end
-end
-
 describe Movie, "#director" do
   it "returns the director of the movie", points: 3 do
     director = Director.new

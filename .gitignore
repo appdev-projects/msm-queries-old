@@ -28,3 +28,6 @@ grades.yml
 whitelist.yml
 cloud9_plugins.sh
 appdev/runs
+
+# Codio
+.settings
