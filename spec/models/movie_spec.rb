@@ -15,24 +15,6 @@
 
 require "rails_helper"
 
-describe Movie, ".first_by_title" do
-  it "returns the first row matching the title", points: 2 do
-    first_movie = Movie.new
-    first_movie.title = "First movie"
-    first_movie.save
-
-    second_movie = Movie.new
-    second_movie.title = "Second movie"
-    second_movie.save
-
-    third_movie = Movie.new
-    third_movie.title = "Third movie"
-    third_movie.save
-
-    expect(Movie.first_by_title("Second movie")).to eq(second_movie)
-  end
-end
-
 describe Movie, ".last_decade" do
   it "returns the movies from within the last 10 years", points: 3 do
     first_movie = Movie.new

@@ -336,7 +336,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    web_git (0.0.2)
+    web_git (0.0.3)
       diffy
       git_clone_url
       jquery-rails

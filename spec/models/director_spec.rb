@@ -13,16 +13,6 @@
 
 require "rails_helper"
 
-describe Director, "#age" do
-  it "calculates age as of today", points: 1 do
-    director = Director.new
-    director.dob = 42.years.ago
-    director.save
-
-    expect(director.age).to eq(42)
-  end
-end
-
 describe Director, ".youngest" do
   it "returns the youngest director", points: 2 do
     first_director = Director.new
