@@ -35,5 +35,5 @@ chdir APP_ROOT do
   # Add necessary setup steps to this file.
   system "git init"
   system "git add -A"
-  system "git commit -m `Initial commit'"
+  system "git commit -m 'Initial commit'"
 end
