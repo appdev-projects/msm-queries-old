@@ -1,6 +1,12 @@
 namespace(:dev) do
   desc "Hydrate the database with some dummy data to look at so that developing is easier"
   task({ :prime => :environment}) do
+
+    spinners = TTY::Spinner::Multi.new("[:spinner] rails dev:prime")
+
+    sp1 = spinners.register "[:spinner] Creating Directors"
+    sp1.auto_spin
+
     Director.destroy_all
     Director.create!([
       {id: 1, dob: "January 28, 1959", name: "Frank Darabont", bio: "Three-time Oscar nominee Frank Darabont was born in a refugee camp in 1959 in Montbeliard, France, the son of Hungarian parents who had fled Budapest during the failed 1956 Hungarian revolution. Brought to America as an infant, he settled with his family in Los Angeles and attended Hollywood High School. His first job in movies was as a production assistant on the 1981 low-budget film, Hell Night (1981), starring Linda Blair. He spent the next six years working in the art department as a set dresser and in set construction while struggling to establish himself as a writer. His first produced writing credit (shared) was on the 1987 film, A Nightmare on Elm Street 3: Dream Warriors (1987), directed by Chuck Russell. Darabont is one of only six filmmakers in history with the unique distinction of having his first two feature films receive nominations for the Best Picture Academy Award: 1994's The Shawshank Redemption (1994) (with a total of seven nominations) and 1999's The Green Mile (1999) (four nominations). Darabont himself collected Oscar nominations for Best Adapted Screenplay for each film (both based on works by Stephen King), as well as nominations for both films from the Director's Guild of America, and a nomination from the Writers Guild of America for The Shawshank Redemption (1994). He won the Humanitas Prize, the PEN Center USA West Award, and the Scriptor Award for his screenplay of \"The Shawshank Redemption\". For \"The Green Mile\", he won the Broadcast Film Critics prize for his screenplay adaptation, and two People's Choice Awards in the Best Dramatic Film and Best Picture categories. His most recent feature as director, The Majestic (2001), starring Jim Carrey, was released in December 2001. His next film as director will be an adaptation of Ray Bradbury's classic science fiction novel, Fahrenheit 451 (2007), which Darabont is currently writing for Castle Rock and Icon Productions. He is currently executive-producing the thriller, Collateral (2004), for DreamWorks, with Michael Mann directing and Tom Cruise starring. Future produced-by projects include \"Way of the Rat\" at DreamWorks with Chuck Russell adapting and directing the CrossGen comic book series and \"Back Roads\", a Tawni O'Dell novel, also at DreamWorks, with Todd Field attached to direct. Darabont and his production company, \"Darkwoods Productions\", have an overall deal with Paramount Pictures.", image_url: "http://ia.media-imdb.com/images/M/MV5BNjk0MTkxNzQwOF5BMl5BanBnXkFtZTcwODM5OTMwNA@@._V1._SY314_CR19,0,214,314_.jpg", created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"},
@@ -39,6 +45,10 @@ namespace(:dev) do
       {id: 34, dob: "December 5, 1890", name: "Fritz Lang", bio: "Fritz Lang was born in Vienna, Austria, in 1890. His father managed a construction company. His mother, Pauline Schlesinger, was Jewish but converted to Catholicism when Lang was ten. After high school, he enrolled briefly at the Technische Hochschule Wien and then started to train as a painter. From 1910 to 1914, he traveled in Europe, and he would later claim, also in Asia and North Africa. He studied painting in Paris from 1913-14. At the start of World War I, he returned to Vienna, enlisting in the army in January 1915. Severely wounded in June 1916, he wrote some scenarios for films while convalescing. In early 1918, he was sent home shell-shocked and acted briefly in Viennese theater before accepting a job as a writer at Erich Pommer's production company in Berlin, Decla. In Berlin, Lang worked briefly as a writer and then as a director, at Ufa and then for Nero-Film, owned by the American Seymour Nebenzal. In 1920, he began a relationship with actress and writer Thea von Harbou (1889-1954), who wrote with him the scripts for his most celebrated films: Dr. Mabuse: The Gambler (1922), Siegfried (1924), Metropolis (1927) and M (1931) (credited to von Harbou alone). They married in 1922 and divorced in 1933. In that year, Nazi propaganda minister Josef Goebbels offered Lang the job of head of the German Cinema Institute. Lang--who was an anti-Nazi mainly because of his Catholic background--did not accept the position (it was later offered to and accepted by filmmaker Leni Riefenstahl) and, after secretly sending most of his money out of the country, fled Germany to Paris. After about a year in Paris, Lang moved to the United States in mid-1934, initially under contract to MGM. Over the next 20 years, he directed numerous American films. In the 1950s, in part because the film industry was in economic decline and also because of Lang's long-standing reputation for being difficult with, and abusive to, actors, he found it increasingly hard to get work. At the end of the 1950s, he traveled to Germany and made what turned out to be his final three films there, none of which were well received.In 1964, nearly blind, he was chosen to be president of the jury at the Cannes Film Festival. He was an avid collector of primitive art and habitually wore a monocle, an affectation he picked up during his early days in Vienna. After his divorce from von Harbou, he had relationships with many other women, but from about 1931 to his death in 1976, he was close to Lily Latte, who helped him in many ways.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTc4NDU5ODgzNl5BMl5BanBnXkFtZTYwNDg2NzM2._V1._SY314_CR20,0,214,314_.jpg", created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"}
     ])
     puts "There are #{Director.count} directors in the database"
+    sp1.success
+
+    sp2 = spinners.register "[:spinner] Creating Movies"
+    sp2.auto_spin
 
     Movie.destroy_all
     Movie.create!([
@@ -94,7 +104,10 @@ namespace(:dev) do
       {id: 50, title: "M", year: "1931", duration: 99, description: "When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTIwNDU4OTI2MF5BMl5BanBnXkFtZTcwNzI5MjcyMQ@@._V1_SY317_CR6,0,214,317_.jpg", director_id: 34, created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"}
     ])
     puts "There are #{Movie.count} movies in the database"
+    sp2.success
 
+    sp3 = spinners.register "[:spinner] Creating Actors"
+    sp3.auto_spin
     Actor.destroy_all
     Actor.create!([
       {id: 1, dob: "October 16, 1958", name: "Tim Robbins", bio: "Born in West Covina, California, but raised in New York City, Tim Robbins is the son of former The Highwaymen singer Gil Robbins and actress Mary Robbins. Robbins studied drama at UCLA, where he graduated with honors in 1981. That same year, he formed the Actors' Gang theater group, an experimental ensemble that expressed radical political observations through the European avant-garde form of theater. He started film work in television movies in 1983, but hit the big time in 1988 with his portrayal of dimwitted fastball pitcher \"Nuke\" Laloosh in Bull Durham (1988). Tall with baby-faced looks, he has the ability to play naive and obtuse (Cadillac Man (1990) and The Hudsucker Proxy (1994)) or slick and shrewd (The Player (1992) and Bob Roberts (1992)).", image_url: "http://ia.media-imdb.com/images/M/MV5BMTI1OTYxNzAxOF5BMl5BanBnXkFtZTYwNTE5ODI4._V1._SY314_CR15,0,214,314_.jpg", created_at: "2015-08-12 17:20:06", updated_at: "2015-08-12 17:20:06"},
@@ -751,6 +764,11 @@ namespace(:dev) do
       {id: 652, dob: "January 8, 1898", name: "Gerhard Bienert", bio: nil, image_url: nil, created_at: "2015-08-12 17:20:07", updated_at: "2015-08-12 17:20:07"}
     ])
     puts "There are #{Actor.count} actors in the database"
+
+    sp3.success
+
+    sp4 = spinners.register "[:spinner] Creating Characters"
+    sp4.auto_spin
 
     Character.destroy_all
     Character.create!([
@@ -1478,5 +1496,6 @@ namespace(:dev) do
       {id: 722, name: "Criminal secretary", movie_id: 50, actor_id: 652, created_at: "2015-08-12 17:20:11", updated_at: "2015-08-12 17:20:11"}
     ])
     puts "There are #{Character.count} characters in the database"
+    sp4.success
   end
 end
