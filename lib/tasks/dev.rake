@@ -5,7 +5,14 @@ namespace(:dev) do
     spinners = TTY::Spinner::Multi.new("[:spinner] rails dev:prime")
 
     sp1 = spinners.register "[:spinner] Creating Directors"
+    sp2 = spinners.register "[:spinner] Creating Movies"
+    sp3 = spinners.register "[:spinner] Creating Actors"
+    sp4 = spinners.register "[:spinner] Creating Characters"
+
     sp1.auto_spin
+    sp2.auto_spin
+    sp3.auto_spin
+    sp4.auto_spin
 
     Director.destroy_all
     Director.create!([
@@ -44,11 +51,7 @@ namespace(:dev) do
       {id: 33, dob: "August 18, 1933", name: "Roman Polanski", bio: "Roman Polanski is a Polish film director, producer, writer and actor. Having made films in Poland, Britain, France and the USA, he is considered one of the few truly international filmmakers. Roman Polanski was born in Paris in 1933. His parents returned to Poland from France in 1936, three years before World War II began. On Germany's invasion in 1939, as a Jewish family they were all sent to the Krakow ghetto. His parents were then captured and sent to two different concentration camps: his father to Mauthausen-Gusen in Austria, where he survived the war, and his mother to Auschwitz where she was murdered. Roman witnessed his father's capture and then, at only 7, managed to escape the ghetto and survive the war, at first wandering through the Polish countryside and pretending to be a Roman-Catholic kid visiting his relatives. Although this saved his life, he was severely mistreated suffering nearly fatal beating which left him with a fractured skull. Local people usually ignored the cinemas where German films were shown, but Polanski seemed little concerned by the propaganda and often went to the movies. As the war progressed, Poland became increasingly war-torn and he lived his life as a tramp, hiding in barns and forests, eating whatever he could steal or find. Still under 12 years old, he encountered some Nazi soldiers who forced him to hold targets while they shot at them. At the war's end in 1945, he reunited with his father who sent him to a technical school, but young Polanski seemed to have already chosen another career. In the 1950s, he took up acting, appearing in Andrzej Wajda's A Generation (1955) before studying at the Lodz Film School. His early shorts such as Two Men and a Wardrobe (1958), The Fat and the Lean (1961) and Mammals (1962), showed his taste for black humor and interest in bizarre human relationships. His feature debut, Knife in the Water (1962), was one of the first Polish post-war films not associated with the war theme. It was also the first movie from Poland to get an Oscar nomination for best foreign film. Though already a major Polish filmmaker, Polanski chose to leave the country and headed to France. While down-and-out in Paris, he befriended young scriptwriter, Gérard Brach, who eventually became his long-time collaborator. The next two films, Repulsion (1965) and Cul-de-sac (1966), made in England and co-written by Brach, won respectively Silver and then Golden Bear awards at the Berlin International Film Festival. In 1968, Polanski went to Hollywood, where he made the psychological thriller, Rosemary's Baby (1968). However, after the brutal murder of his wife, Sharon Tate, by the infamous Manson gang in 1969, the director decided to return to Europe. In 1974, he again made a US release - it was Chinatown (1974). It seemed the beginning of a promising Hollywood career, but after his conviction for the statutory rape of a 13-year old girl, Polanski fled from the USA to avoid prison. After Tess (1979), which was awarded several Oscars and Cesars, his works in 1980s and 1990s became intermittent and rarely approached the caliber of his earlier films. It wasn't until The Pianist (2002) that Polanski came back to full form. For that movie, he won nearly all the most important film awards, including the Oscar for best directing, Cannes Film Festival's Palme d'Or, the BAFTA and Cesar Award. He still likes to act in the films of other directors, sometimes with interesting results, as in A Pure Formality (1994). By: Yuri German (blsidt1 AT imf.org) and edited by Steve Somers.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTAzNzgwMzMyNDNeQTJeQWpwZ15BbWU2MDg0MDkzNA@@._V1._SX214_CR0,0,214,314_.jpg", created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"},
       {id: 34, dob: "December 5, 1890", name: "Fritz Lang", bio: "Fritz Lang was born in Vienna, Austria, in 1890. His father managed a construction company. His mother, Pauline Schlesinger, was Jewish but converted to Catholicism when Lang was ten. After high school, he enrolled briefly at the Technische Hochschule Wien and then started to train as a painter. From 1910 to 1914, he traveled in Europe, and he would later claim, also in Asia and North Africa. He studied painting in Paris from 1913-14. At the start of World War I, he returned to Vienna, enlisting in the army in January 1915. Severely wounded in June 1916, he wrote some scenarios for films while convalescing. In early 1918, he was sent home shell-shocked and acted briefly in Viennese theater before accepting a job as a writer at Erich Pommer's production company in Berlin, Decla. In Berlin, Lang worked briefly as a writer and then as a director, at Ufa and then for Nero-Film, owned by the American Seymour Nebenzal. In 1920, he began a relationship with actress and writer Thea von Harbou (1889-1954), who wrote with him the scripts for his most celebrated films: Dr. Mabuse: The Gambler (1922), Siegfried (1924), Metropolis (1927) and M (1931) (credited to von Harbou alone). They married in 1922 and divorced in 1933. In that year, Nazi propaganda minister Josef Goebbels offered Lang the job of head of the German Cinema Institute. Lang--who was an anti-Nazi mainly because of his Catholic background--did not accept the position (it was later offered to and accepted by filmmaker Leni Riefenstahl) and, after secretly sending most of his money out of the country, fled Germany to Paris. After about a year in Paris, Lang moved to the United States in mid-1934, initially under contract to MGM. Over the next 20 years, he directed numerous American films. In the 1950s, in part because the film industry was in economic decline and also because of Lang's long-standing reputation for being difficult with, and abusive to, actors, he found it increasingly hard to get work. At the end of the 1950s, he traveled to Germany and made what turned out to be his final three films there, none of which were well received.In 1964, nearly blind, he was chosen to be president of the jury at the Cannes Film Festival. He was an avid collector of primitive art and habitually wore a monocle, an affectation he picked up during his early days in Vienna. After his divorce from von Harbou, he had relationships with many other women, but from about 1931 to his death in 1976, he was close to Lily Latte, who helped him in many ways.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTc4NDU5ODgzNl5BMl5BanBnXkFtZTYwNDg2NzM2._V1._SY314_CR20,0,214,314_.jpg", created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"}
     ])
-    puts "There are #{Director.count} directors in the database"
     sp1.success
-
-    sp2 = spinners.register "[:spinner] Creating Movies"
-    sp2.auto_spin
 
     Movie.destroy_all
     Movie.create!([
@@ -103,11 +106,8 @@ namespace(:dev) do
       {id: 49, title: "The Departed", year: "2006", duration: 151, description: "An undercover state cop who infiltrated a Mafia clan and a mole in the police force working for the same mob race to track down and identify each other before being exposed to the enemy, after both sides realize their outfit has a rat.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SY317_CR0,0,214,317_.jpg", director_id: 12, created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"},
       {id: 50, title: "M", year: "1931", duration: 99, description: "When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.", image_url: "http://ia.media-imdb.com/images/M/MV5BMTIwNDU4OTI2MF5BMl5BanBnXkFtZTcwNzI5MjcyMQ@@._V1_SY317_CR6,0,214,317_.jpg", director_id: 34, created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05"}
     ])
-    puts "There are #{Movie.count} movies in the database"
     sp2.success
 
-    sp3 = spinners.register "[:spinner] Creating Actors"
-    sp3.auto_spin
     Actor.destroy_all
     Actor.create!([
       {id: 1, dob: "October 16, 1958", name: "Tim Robbins", bio: "Born in West Covina, California, but raised in New York City, Tim Robbins is the son of former The Highwaymen singer Gil Robbins and actress Mary Robbins. Robbins studied drama at UCLA, where he graduated with honors in 1981. That same year, he formed the Actors' Gang theater group, an experimental ensemble that expressed radical political observations through the European avant-garde form of theater. He started film work in television movies in 1983, but hit the big time in 1988 with his portrayal of dimwitted fastball pitcher \"Nuke\" Laloosh in Bull Durham (1988). Tall with baby-faced looks, he has the ability to play naive and obtuse (Cadillac Man (1990) and The Hudsucker Proxy (1994)) or slick and shrewd (The Player (1992) and Bob Roberts (1992)).", image_url: "http://ia.media-imdb.com/images/M/MV5BMTI1OTYxNzAxOF5BMl5BanBnXkFtZTYwNTE5ODI4._V1._SY314_CR15,0,214,314_.jpg", created_at: "2015-08-12 17:20:06", updated_at: "2015-08-12 17:20:06"},
@@ -763,12 +763,8 @@ namespace(:dev) do
       {id: 651, dob: "March 6, 1886", name: "Ernst Stahl-Nachbaur", bio: nil, image_url: nil, created_at: "2015-08-12 17:20:07", updated_at: "2015-08-12 17:20:07"},
       {id: 652, dob: "January 8, 1898", name: "Gerhard Bienert", bio: nil, image_url: nil, created_at: "2015-08-12 17:20:07", updated_at: "2015-08-12 17:20:07"}
     ])
-    puts "There are #{Actor.count} actors in the database"
 
     sp3.success
-
-    sp4 = spinners.register "[:spinner] Creating Characters"
-    sp4.auto_spin
 
     Character.destroy_all
     Character.create!([
@@ -1495,7 +1491,8 @@ namespace(:dev) do
       {id: 721, name: "Police chief", movie_id: 50, actor_id: 651, created_at: "2015-08-12 17:20:11", updated_at: "2015-08-12 17:20:11"},
       {id: 722, name: "Criminal secretary", movie_id: 50, actor_id: 652, created_at: "2015-08-12 17:20:11", updated_at: "2015-08-12 17:20:11"}
     ])
-    puts "There are #{Character.count} characters in the database"
     sp4.success
+
+    puts "Database has #{Director.count} Directors, #{Movie.count} Movies, #{Actor.count} Actors, and #{Character.count} Characters"
   end
 end
