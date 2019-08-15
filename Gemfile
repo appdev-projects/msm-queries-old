@@ -32,7 +32,7 @@ group :development, :test do
   gem "grade_runner", github: "firstdraft/grade_runner"
   gem "pry-rails"
   gem "sqlite3"
-  gem "web_git"
+  gem 'web_git', github: 'firstdraft/web_git'
 end
 
 group :development do
